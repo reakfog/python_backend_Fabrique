@@ -9,5 +9,5 @@ urlpatterns = [
     path('surveys/', views.api_surveys_list),
     path('surveys/<int:id>/', views.api_surveys_list),
     path('surveys/<int:id>/anonymously/', views.api_survey_anonymously),
-    path('answer/', views.api_answers),
+    path('answers/', views.api_answers),
 ]
