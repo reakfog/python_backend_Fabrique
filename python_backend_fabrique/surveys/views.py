@@ -54,7 +54,7 @@ def api_signin(request):
 
 # -- Getting surveys list -----------------------------------------------------
 @api_view(['GET']) 
-def api_surveys(request):
+def api_surveys_list(request):
     if request.method == 'GET':
         current_date = datetime.now().date()
         surveys = Survey.objects.filter(
@@ -66,4 +66,19 @@ def api_surveys(request):
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
-# -- Getting surveys list -----------------------------------------------------
+# -- Taking a survey -----------------------------------------------------
+@api_view(['POST']) 
+def api_survey(request, id):
+    pass
+
+
+# -- Taking a survey anonymously -----------------------------------------------------
+@api_view(['POST']) 
+def api_survey_anonymously(request):
+    pass
+
+
+# -- Getting user answers -----------------------------------------------------
+@api_view(['GET']) 
+def api_answers(request):
+    pass
