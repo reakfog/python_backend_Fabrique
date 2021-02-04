@@ -67,18 +67,18 @@ def api_surveys_list(request):
 
 
 # -- Taking a survey -----------------------------------------------------
-@api_view(['POST']) 
+@api_view(['GET', 'POST']) 
 def api_survey(request, id):
     pass
 
 
 # -- Taking a survey anonymously -----------------------------------------------------
-@api_view(['POST']) 
-def api_survey_anonymously(request):
+@api_view(['GET', 'POST']) 
+def api_survey_anonymously(request, id):
     pass
 
 
 # -- Getting user answers -----------------------------------------------------
-@api_view(['GET']) 
+@api_view(['GET'])
 def api_answers(request):
     pass

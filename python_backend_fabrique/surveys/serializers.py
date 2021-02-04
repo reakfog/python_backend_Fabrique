@@ -19,6 +19,7 @@ class SurveySerializer(serializers.ModelSerializer):
     class Meta:
         model = Survey
         fields = (
+            'pk',
             'title',
             'description',
             'start_date',

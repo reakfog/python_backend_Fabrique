@@ -47,12 +47,11 @@
 > Приложение будет доступно в браузере по адресу http://127.0.0.1:8000/.
 
 ## <a name='api_documentation'>Документация API</a>
-http://127.0.0.1:8000
 **Функционал** | **Метод** | **Поля запроса** | **URL**
 :--- | :--- | :--- | :---
 Регистрация | 'POST' | email, password, username, first_name, last_name| api/v1/signup/
 Авторизация (получение токена) | 'POST' | username, password | api/v1/signin/
 Получение списка активных опросов | 'GET' | | api/v1/surveys/
-Прохождение опроса | 'POST' | authorization (токен) | api/v1/surveys/<int:id>/
-Прохождение опроса анонимно| 'POST' | authorization (токен) | api/v1/surveys/<int:id>/anonymously/
-Получение пройденных опросов | 'GET' | authorization (токен) | api/v1/answers/
+Прохождение опроса | 'GET' (список вопросов), 'POST' (передача ответа на один из вопросов) | authorization (токен) | api/v1/surveys/<int:id>/
+Прохождение опроса анонимно| 'GET' (список вопросов), 'POST' (передача ответа на один из вопросов) | authorization (токен) | api/v1/surveys/<int:id>/anonymously/
+Получение пройденных опросов с детализацией по ответам | 'GET' | authorization (токен) | api/v1/answers/
