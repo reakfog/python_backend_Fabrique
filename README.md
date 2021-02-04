@@ -5,7 +5,7 @@
 2. [Запуск проекта локально](#lounch)
 3. [Документация API](#api_documentation)
 
-## <a name='task'>Задача</a>.
+## <a name='task'>Задача</a>
 Спроектировать и разработать API для системы опросов пользователей.
 
 Функционал для администратора системы:
@@ -49,9 +49,9 @@
 ## <a name='api_documentation'>Документация API</a>
 **Функционал** | **Метод** | **Поля запроса** | **URL**
 :--- | :--- | :--- | :---
-Регистрация | 'POST' | email, password, username, first_name, last_name| api/v1/signup/
-Авторизация (получение токена) | 'POST' | username, password | api/v1/signin/
-Получение списка активных опросов | 'GET' | | api/v1/surveys/
-Прохождение опроса | 'GET' (список вопросов), 'POST' (передача ответа на один из вопросов) | authorization (токен) | api/v1/surveys/<int:id>/
-Прохождение опроса анонимно| 'GET' (список вопросов), 'POST' (передача ответа на один из вопросов) | authorization (токен) | api/v1/surveys/<int:id>/anonymously/
-Получение пройденных опросов с детализацией по ответам | 'GET' | authorization (токен) | api/v1/answers/
+Регистрация | 'POST' | body: email, password, username, first_name, last_name| api/v1/signup/
+Авторизация (получение токена) | 'POST' | body: username, password | api/v1/signin/
+Получение списка активных опросов | 'GET' | headers: Authorization (токен) | api/v1/surveys/
+Прохождение опроса | 'GET' (список вопросов), 'POST' (передача ответа на один из вопросов) | headers: Authorization (токен) | api/v1/surveys/<int:id>/
+Прохождение опроса анонимно| 'GET' (список вопросов), 'POST' (передача ответа на один из вопросов) | headers: Authorization (токен) | api/v1/surveys/<int:id>/anonymously/
+Получение пройденных опросов с детализацией по ответам | 'GET' | headers: Authorization (токен) | api/v1/answers/

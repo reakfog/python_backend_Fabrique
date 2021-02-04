@@ -30,28 +30,6 @@ def api_signup(request):
         return Response(serializer._errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-# -- Sign in -----------------------------------------------------------------
-@api_view(['POST'])
-@permission_classes((AllowAny,))
-def api_signin(request):
-    try:
-        username = request.data['username']
-        password = request.data['password']
-        user = authenticate(username=username, password=password)
-    except:
-        return Response(
-            {'error': 'Please provide correct username and password'},
-            status=status.HTTP_400_BAD_REQUEST)
-    user = authenticate(username=username, password=password)
-    if user is not None:
-        token, _ = Token.objects.get_or_create(user=user)
-        return Response(
-            {'authenticated': True, 'token': "Token " + token.key})
-    else:
-        return Response(
-            {'authenticated': False, 'token': None})
-
-
 # -- Getting surveys list -----------------------------------------------------
 @api_view(['GET']) 
 def api_surveys_list(request):
@@ -69,7 +47,8 @@ def api_surveys_list(request):
 # -- Taking a survey -----------------------------------------------------
 @api_view(['GET', 'POST']) 
 def api_survey(request, id):
-    pass
+    if request.method == 'GET':
+        pass
 
 
 # -- Taking a survey anonymously -----------------------------------------------------
@@ -82,3 +61,31 @@ def api_survey_anonymously(request, id):
 @api_view(['GET'])
 def api_answers(request):
     pass
+
+
+
+
+
+
+
+
+# -- Sign in -----------------------------------------------------------------
+# @api_view(['POST'])
+# @permission_classes((AllowAny,))
+# def api_signin(request):
+#     try:
+#         username = request.data['username']
+#         password = request.data['password']
+#         user = authenticate(username=username, password=password)
+#     except:
+#         return Response(
+#             {'error': 'Please provide correct username and password'},
+#             status=status.HTTP_400_BAD_REQUEST)
+#     user = authenticate(username=username, password=password)
+#     if user is not None:
+#         token, _ = Token.objects.get_or_create(user=user)
+#         return Response(
+#             {'authenticated': True, 'token': "Token " + token.key})
+#     else:
+#         return Response(
+#             {'authenticated': False, 'token': None})
