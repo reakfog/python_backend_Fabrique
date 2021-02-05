@@ -42,8 +42,8 @@ def api_surveys_list(request):
 
 
 # -- Taking a survey and answering questions----------------------------------
-# -- Не удалось реализовать проверку соответствия ответов на вопросы с
-# -- вариантами ответов.
+# -- Не удалось реализовать проверку соответствия ответов на вопросы и
+# -- вариантов ответов.
 @api_view(['GET', 'POST']) 
 def api_survey(request, id):
     if request.method == 'GET':
