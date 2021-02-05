@@ -33,9 +33,10 @@ class QuestionAdmin(admin.ModelAdmin):
 
 class AnswerAdmin(admin.ModelAdmin):
     list_display = (
+        'text',
+        'anonimously',
         'question',
         'pk',
-        'text',
         'author',) 
     search_fields = ('text',) 
     list_filter = ('question','author',)

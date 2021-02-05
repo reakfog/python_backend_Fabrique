@@ -52,6 +52,7 @@
 Регистрация | 'POST' | body: email, password, username, first_name, last_name| api/v1/signup/
 Авторизация (получение токена) | 'POST' | body: username, password | api/v1/signin/
 Получение списка активных опросов | 'GET' | headers: Authorization (токен) | api/v1/surveys/
-Прохождение опроса | 'GET' (список вопросов), 'POST' (передача ответа на один из вопросов) | headers: Authorization (токен) | api/v1/surveys/<int:id>/
-Прохождение опроса анонимно| 'GET' (список вопросов), 'POST' (передача ответа на один из вопросов) | headers: Authorization (токен) | api/v1/surveys/<int:id>/anonymously/
-Получение пройденных опросов с детализацией по ответам | 'GET' | headers: Authorization (токен) | api/v1/answers/
+Прохождение опроса | 'GET' (список вопросов), 'POST' (передача ответа на один из вопросов) | headers: Authorization (токен) | api/v1/surveys/`survey_id`/
+Получение отданных пользователем ответов | 'GET' | headers: Authorization (токен) | api/v1/answers/
+
+> Токен необходимо оттдавать в следующем формате - Authorization: Token d31754b63d74f15b48aa91ac387f5115d0ba83d6

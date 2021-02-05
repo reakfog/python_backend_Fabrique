@@ -30,19 +30,18 @@ class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
         fields = (
-            'email',
-            'password',
-            'username',
-            'first_name',
-            'last_name',)
+            'pk',
+            'text',
+            'answer_type',
+            'answer_choices',
+            'survey',)
 
 
 class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answer
         fields = (
-            'email',
-            'password',
-            'username',
-            'first_name',
-            'last_name',)
+            'text',
+            'anonimously',
+            'question',
+            'author',)

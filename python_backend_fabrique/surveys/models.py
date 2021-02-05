@@ -58,8 +58,9 @@ def validate_choices(choices):
         if value.replace(' ', '') == '':
             empty += 1
     if len(values) < 2 + empty:
-        msg = 'The selected field requires an associated list of choices.'
-        msg += ' Choices must contain more than one item.'
+        msg = (
+            'The selected field requires an associated list of choices. '
+            'Choices must contain more than one item.')
         raise ValidationError(msg)
 
 
@@ -116,6 +117,9 @@ class Question(models.Model):
 # -- Answers table -------------------------------------------------------
 class Answer(models.Model):
     text = models.TextField()
+    anonimously = models.BooleanField(
+        blank=False,
+        default=False)
     question = models.ForeignKey(
         'Question',
         blank=False,
@@ -125,6 +129,7 @@ class Answer(models.Model):
     author = models.ForeignKey(
         User,
         blank=True,
+        null=True,
         on_delete=models.CASCADE,
         verbose_name=_('User'),
         related_name='answers')
@@ -133,3 +138,8 @@ class Answer(models.Model):
         verbose_name = _('answer')
         verbose_name_plural = _('answers')
         ordering = ('-question',)
+        constraints = [
+            models.UniqueConstraint(
+                fields=['question', 'author'],
+                name='unique_author_answer_key')
+        ]
