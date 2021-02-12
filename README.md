@@ -31,18 +31,18 @@
 Необходимо чтобы на локальном компьютере был установлен Python3 и были выполнены следующие условия:
 1. Склонируйте репозиторий на локальный компьютер
 2. В корневой директории проекта установите и запустите виртуальное окружение
-    - `python -m venv venv`
-    - `source venv/Scripts/activate`
+    - `python3 -m venv venv`
+    - `source venv/bin/activate`
 3. В директории ./python_backend_fabrique создайте файл .env и пропишите в нем SECRET_KEY - секретный ключ Django проекта
 4. Установите необходимые библиотеки:
-    - `pip install -r requirements.txt`
+    - `pip3 install -r requirements.txt`
 5. Примените все необходимые миграции:
-    - `python manage.py makemigrations`
-    - `python manage.py migrate`
+    - `python3 manage.py makemigrations`
+    - `python3 manage.py migrate`
 6. Для доступа к панели администратора создайте администратора:
-    - `python manage.py createsuperuser`
+    - `python3 manage.py createsuperuser`
 7. Запустите локальный сервер:
-    - `python manage.py runserver`
+    - `python3 manage.py runserver`
 
 > Приложение будет доступно в браузере по адресу http://127.0.0.1:8000/.
 
