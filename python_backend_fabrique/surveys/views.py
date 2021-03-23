@@ -42,8 +42,6 @@ def api_surveys_list(request):
 
 
 # -- Taking a survey and answering questions----------------------------------
-# -- Не удалось реализовать проверку соответствия ответов на вопросы и
-# -- вариантов ответов.
 @api_view(['GET', 'POST']) 
 def api_survey(request, id):
     if request.method == 'GET':
@@ -63,8 +61,6 @@ def api_survey(request, id):
 
 
 # -- Getting user answers -----------------------------------------------------
-# -- Не удалось детализировать опросы до ответов пользователя. Смогу составить
-# -- SQL запрос, однако через Django ORM способа пока не нашел.
 @api_view(['GET'])
 def api_answers(request):
     if request.method == 'GET':
